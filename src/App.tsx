@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/KJiKXRxsu2V
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+// import Link from "next/link"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="flex min-h-screen items-center justify-center bg-background">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-2xl">Iniciar sesión</CardTitle>
+          <CardDescription>Ingresa tu correo electrónico y contraseña para acceder a tu cuenta.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">Correo electrónico</Label>
+            <Input id="email" type="email" placeholder="ejemplo@dominio.com" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Contraseña</Label>
+            <Input id="password" type="password" required />
+          </div>
+        </CardContent>
+        <CardFooter className="flex items-center justify-between">
+          <Button className="w-full">Iniciar sesión</Button>
+        </CardFooter>
+        <div className="mt-4 text-center text-sm text-muted-foreground">
+          ¿Aún no tienes una cuenta?{" "}
+          <Link href="#" className="font-medium underline underline-offset-4" prefetch={false}>
+            Regístrate
+          </Link>
+        </div>
+      </Card>
+    </div>
   )
 }
-
-export default App
